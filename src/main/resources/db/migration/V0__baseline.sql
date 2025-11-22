@@ -1,0 +1,1 @@
+-- baseline migration for smart parking lot; no-op.

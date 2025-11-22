@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: smart-parking
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parkinglot
+    username: parking
+    password: parking
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    flyway:
+      enabled: true
+    show-sql: true
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always #always= during_dev || when_authorized =during_production
+      probes:
+        enabled: true
+server:
+  port: 8081
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X{correlationId}] [%thread] %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
